@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tournament With MN Season III</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="anime-bg"></div>
+  <div class="form-card">
+    <h1>Formulir Pendaftaran</h1>
+    <form id="registrationForm">
+      <label for="question">Sudahkan Anda join Komunitas MN?:</label>
+      <input type="text" id="question" name="question" required />
+
+      <label for="nickname">Nickname:</label>
+      <input type="text" id="nickname" name="nickname" required />
+
+      <label for="phone">No Handphone:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}" />
+
+      <label for="date">Tanggal:</label>
+      <input type="date" id="date" name="date" required />
+
+      <button type="submit">Kirim</button>
+    </form>
+    <div id="message"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
