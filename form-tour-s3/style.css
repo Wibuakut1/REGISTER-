@@ -1,33 +1,85 @@
-document.getElementById("registrationForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap');
 
-  const data = {
-    question: document.getElementById("question").value,
-    nickname: document.getElementById("nickname").value,
-    phone: document.getElementById("phone").value,
-    date: document.getElementById("date").value,
-  };
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(to right, #f9f3ff, #e0d4f7);
+  overflow: hidden;
+}
 
-  fetch("https://script.google.com/macros/s/AKfycbwdozJp8fyWDCqpAeJdBviE9QK6k4fiis_3o47U91Efyp2tCV6FAYTE8elNCplAC6Tzpg/exec", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.status === "success") {
-        document.getElementById("message").textContent = "Data berhasil dikirim!";
-        document.getElementById("registrationForm").reset();
-      } else {
-        document.getElementById("message").textContent = "Gagal mengirim data.";
-      }
-    })
-    .catch((err) => {
-      document.getElementById("message").textContent = "Terjadi kesalahan.";
-      console.error(err);
-    });
-});
+.anime-bg {
+  background-image: url('https://www.pxfuel.com/en/desktop-wallpaper-ihyjk');
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px) brightness(0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
 
-        
+.form-card {
+  width: 90%;
+  max-width: 420px;
+  margin: 60px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: perspective(1000px) rotateX(2deg);
+  transition: transform 0.3s ease;
+}
+
+.form-card:hover {
+  transform: perspective(1000px) rotateX(0deg) scale(1.02);
+}
+
+h1 {
+  text-align: center;
+  color: #6c4eb6;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background-color: #9a6aff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 5px 15px rgba(154,106,255,0.5);
+}
+
+button:hover {
+  background-color: #7f4fe1;
+}
+
+#message {
+  margin-top: 20px;
+  text-align: center;
+  color: #4caf50;
+  font-weight: bold;
+}
